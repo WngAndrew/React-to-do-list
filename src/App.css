@@ -1,38 +1,140 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;
+    background-color: #310e68;
+    background-image: linear-gradient(316deg, #310e68 0%, #5f0f40 74%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.task-input-container {
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.task-input-container h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.new-task-form {
+    display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input, button {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+input:hover, button:hover {
+    cursor: pointer;
+}
+
+.new-task-input, .new-task-deadline {
+    flex: 1 1 0%;
+    background-color: #171717;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    color: #fff;
+} 
+
+.new-task-submit {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+main {
+    flex: 1 1 0%;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.task-list{
+    padding: 1rem;
+}
+
+.task-list h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: grey;
+    margin-bottom: 1rem;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #171717;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.due-date {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-right: 10px;
+}
+
+.tasks .content .text {
+    color: white;
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+}
+
+
+.tasks .functions .delete {
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+}
+
+
+.tasks .functions .save {
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.tasks .functions {
+    display: flex;
+    cursor: pointer;
+    font-size: 1.125rem;
+}
+
+.task-filters {
+    display: flex;
+    justify-content: space-between;
+    padding: .1rem;
+}
+
+.function-on {
+    color: #944509;
+}
+
+main {
+    flex: 1 1 0%;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
 }

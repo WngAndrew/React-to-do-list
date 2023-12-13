@@ -1,23 +1,48 @@
-import logo from './logo.svg';
 import './App.css';
+import TaskInput from './components/TaskInput';
+import React, {useState} from 'react'
+import Tasks from './components/Tasks';
+
+
 
 function App() {
+  const [taskElements, setTaskElements] = useState({})
+
+  //states used for toggling completed tasks
+  const [completedTasks, setCompletedTasks] = useState({})
+  
+
+  const addTask = (taskText, dueDate) => {
+    const taskCopy = {...taskElements}
+    taskCopy[taskText] = dueDate
+    setTaskElements(taskCopy)
+  }
+
+  const deleteTask = (task) => {
+    const taskCopy = {...taskElements}
+    delete taskCopy[task]
+    setTaskElements(taskCopy)
+    }
+
+
+  const completeTask = (task, date) => {
+    const taskCopy = {...taskElements}
+    const completedCopy = {...completedTasks}
+    completedCopy[task] = date
+    setCompletedTasks(completedCopy)
+    delete taskCopy[task]
+    setTaskElements(taskCopy)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <TaskInput addTask={addTask}/>
+        <Tasks 
+          taskElements={taskElements} 
+          deleteTask={deleteTask}
+          completeTask={completeTask}
+          completedTasks={completedTasks}
+        />
     </div>
   );
 }
